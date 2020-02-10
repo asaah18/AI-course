@@ -1,17 +1,19 @@
 # simple AI agent(vacuum cleaner), using if statement style
-# where the agent move between rooms -also called location- A,B
-
+# where the agent moves between rooms -also called location- A, B, C, D in a circular way.
+# room distribution:
+# A B
+# D C
 import sys
 from random import randint
 
 
 class VacuumCleaner:
-    possible_locations = ("A", "B")
-    possible_states = ("C", "D")
+    possible_locations = ("A", "B", "C", "D")
+    possible_states = ("C", "D")    # Dirty or Clean
 
     def __init__(self):
         # get initial location from user
-        user_input = input("Enter the location of the Agent(A[room] or B[room]): ")
+        user_input = input("Enter the location of the Agent(A[room] or B[room] or C[room] or D[room]): ")
         self.location = user_input[0].upper()
 
         # check user input
@@ -52,6 +54,10 @@ class VacuumCleaner:
     def get_next_location(self):
         if self.location == "A":
             return "B"
+        elif self.location == "B":
+            return "C"
+        elif self.location == "C":
+            return "D"
         else:
             return "A"
 
