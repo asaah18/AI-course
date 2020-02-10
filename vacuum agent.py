@@ -4,7 +4,7 @@
 # A B
 # D C
 import sys
-from random import randint
+from random import choice
 
 
 class VacuumCleaner:
@@ -49,7 +49,7 @@ class VacuumCleaner:
             print("Unexpected failure with detecting the location state,try again")
 
     def sensor(self):
-        return self.possible_states[randint(0, (len(self.possible_states) - 1))]
+        return choice(self.possible_states)
 
     def get_next_location(self):
         if self.location == "A":
